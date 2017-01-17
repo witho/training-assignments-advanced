@@ -31,16 +31,24 @@
  */
 package com.jme3.opencl.lwjgl;
 
+import java.nio.ByteBuffer;
+import java.nio.DoubleBuffer;
+import java.nio.FloatBuffer;
+import java.nio.IntBuffer;
+import java.nio.LongBuffer;
+import java.nio.ShortBuffer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import org.lwjgl.BufferUtils;
+import org.lwjgl.PointerBuffer;
+import org.lwjgl.opencl.CL10;
+import org.lwjgl.opencl.CL12;
+
 import com.jme3.opencl.MappingAccess;
 import com.jme3.opencl.MemoryAccess;
 import com.jme3.opencl.OpenCLException;
 import com.jme3.opencl.lwjgl.info.CLUtil;
-import java.nio.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.lwjgl.BufferUtils;
-import org.lwjgl.PointerBuffer;
-import org.lwjgl.opencl.*;
 
 
 /**
@@ -51,7 +59,7 @@ public class Utils {
     private static final Logger LOG = Logger.getLogger(Utils.class.getName());
     private Utils() {}
    
-    public static final boolean CL_GL_SHARING_POSSIBLE = com.jme3.system.lwjgl.LwjglContext.CL_GL_SHARING_POSSIBLE;
+    public static final boolean CL_GL_SHARING_POSSIBLE = false;
     public static void assertSharingPossible() {
         if (!CL_GL_SHARING_POSSIBLE) {
             throw new OpenCLException("OpenGL/CL sharing not possible");

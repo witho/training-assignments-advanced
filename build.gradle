@@ -9,10 +9,15 @@ buildscript {
 }
 
 apply plugin: 'base'
+apply plugin: 'eclipse'
 apply from: file('version.gradle')
+
+
 
 // This is applied to all sub projects
 subprojects {
+	apply plugin: 'eclipse'
+
     if(!project.name.equals('jme3-android-examples')) {
         apply from: rootProject.file('common.gradle')
         if (!['jme3-testdata', 'sdk'].contains(project.name)) {

@@ -4,12 +4,15 @@
 /.idea/
 /dist/
 /build/
-/bin/
+**/bin/
 /netbeans/
 /.classpath
 /.project
-/.settings
+**/.settings/
 *.dll
+**/*.class
+**/.project
+**/.classpath
 *.so
 *.jnilib
 *.dylib
