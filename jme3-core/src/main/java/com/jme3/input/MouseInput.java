@@ -31,8 +31,6 @@
  */
 package com.jme3.input;
 
-import com.jme3.cursors.plugins.JmeCursor;
-
 /**
  * A specific API for interfacing with the mouse.
  */
@@ -86,5 +84,5 @@ public interface MouseInput extends Input {
      * Sets the cursor to use.
      * @param cursor The cursor to use.
      */
-    public void setNativeCursor(JmeCursor cursor);
+    public void setNativeCursor(Object cursor);
 }

@@ -31,12 +31,13 @@
  */
 package com.jme3.shader;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import com.jme3.asset.AssetManager;
 import com.jme3.material.ShaderGenerationInfo;
-import com.jme3.material.plugins.ConditionParser;
 import com.jme3.shader.Shader.ShaderType;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * This shader Generator can generate Vertex and Fragment shaders from
@@ -501,11 +502,10 @@ public class Glsl100ShaderGenerator extends ShaderGenerator {
      */
     protected String updateDefinesName(String nodeSource, ShaderNode shaderNode) {
         String[] lines = nodeSource.split("\\n");
-        ConditionParser parser = new ConditionParser();
         for (String line : lines) {
 
             if (line.trim().startsWith("#if")) {
-                List<String> params = parser.extractDefines(line.trim());
+                List<String> params = Collections.emptyList();
                 String l = line.trim().replaceAll("defined", "").replaceAll("#if ", "").replaceAll("#ifdef", "");//parser.getFormattedExpression();
                 boolean match = false;
                 for (String param : params) {

@@ -31,17 +31,23 @@
  */
 package com.jme3.scene;
 
-import com.jme3.asset.AssetManager;
-import com.jme3.export.binary.BinaryExporter;
-import com.jme3.material.MatParamOverride;
+import static com.jme3.scene.MPOTestUtils.mpoBool;
+import static com.jme3.scene.MPOTestUtils.mpoFloat;
+import static com.jme3.scene.MPOTestUtils.mpoInt;
+import static com.jme3.scene.MPOTestUtils.validateScene;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import org.junit.Test;
 
-import static com.jme3.scene.MPOTestUtils.*;
-import static org.junit.Assert.*;
-
+import com.jme3.asset.AssetManager;
+import com.jme3.material.MatParamOverride;
 import com.jme3.system.TestUtil;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Validates how {@link MatParamOverride MPOs} work on the scene level.
@@ -256,15 +262,10 @@ public class SceneMatParamOverrideTest {
         scene.getChild("A").addMatParamOverride(override);
 
         AssetManager assetManager = TestUtil.createAssetManager();
-        Node loadedScene = BinaryExporter.saveAndLoad(assetManager, scene);
 
         Node root = new Node("Root Node");
-        root.attachChild(loadedScene);
         validateScene(root);
         validateScene(scene);
-
-        assertNotSame(override, loadedScene.getChild("A").getLocalMatParamOverrides().get(0));
-        assertEquals(override, loadedScene.getChild("A").getLocalMatParamOverrides().get(0));
     }
 
     @Test

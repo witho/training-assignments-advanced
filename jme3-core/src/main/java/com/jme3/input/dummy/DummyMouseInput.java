@@ -31,7 +31,6 @@
  */
 package com.jme3.input.dummy;
 
-import com.jme3.cursors.plugins.JmeCursor;
 import com.jme3.input.MouseInput;
 
 /**
@@ -51,7 +50,7 @@ public class DummyMouseInput extends DummyInput implements MouseInput {
         return 0;
     }
 
-    public void setNativeCursor(JmeCursor cursor) {
+    public void setNativeCursor(Object cursor) {
     }
 
 }
