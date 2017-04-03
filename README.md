@@ -2,6 +2,7 @@ jMonkeyEngine
 =============
 
 [![Build Status](https://travis-ci.org/jMonkeyEngine/jmonkeyengine.svg?branch=master)](https://travis-ci.org/jMonkeyEngine/jmonkeyengine)
+[![BCH compliance](https://bettercodehub.com/edge/badge/BetterCodeHubTraining/training-assignments-advanced)](https://bettercodehub.com/)
 
 jMonkeyEngine is a 3D game engine for adventurous Java developers. It’s open source, cross platform and cutting edge. And it is all beautifully documented. The 3.0 branch is the latest stable version of the jMonkeyEngine 3 SDK, a complete game development suite. We'll be frequently submitting stable 3.0.x updates until the major 3.1 version arrives.
 
